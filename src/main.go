@@ -18,6 +18,7 @@ func id_handler(w http.ResponseWriter, r *http.Request) {
 
 
 func main() {
+	fmt.Println("Server is starting...")
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/version", version_handler)
 	http.HandleFunc("/id", id_handler)
