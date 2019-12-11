@@ -1,21 +1,25 @@
 package main
 
 import (
-	"os"
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) { 
-	fmt.Fprintln(w, "OK") }
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Received request from ", r.RemoteAddr)
+	hostname, _ := os.Hostname()
+	fmt.Fprintln(w, "You've hit ", hostname)
+}
 
-func version_handler(w http.ResponseWriter, r *http.Request) { 
-	fmt.Fprintln(w, "0.1") }
+func version_handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "0.1")
+}
 
-func id_handler(w http.ResponseWriter, r *http.Request) { 
-	fmt.Fprintln(w, os.Getenv("NODE_ID")) }
-
+func id_handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, os.Getenv("NODE_ID"))
+}
 
 func main() {
 	fmt.Println("Server is starting...")
