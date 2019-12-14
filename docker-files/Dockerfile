@@ -3,6 +3,7 @@ WORKDIR /src/
 COPY src/main.go  /src/
 RUN CGO_ENABLED=0 go build -o /bin/api-demo
 
-FROM scratch
+#FROM scratch
+FROM alpine:3.10
 COPY --from=build /bin/api-demo /bin/api-demo
 ENTRYPOINT ["/bin/api-demo"]
