@@ -1,0 +1,11 @@
+apiVersion: v1               
+kind: Pod                    
+metadata:
+  name: kubia-manual   
+spec:
+  containers:
+  - image: chanalex/api-demo:kubia-1.0   
+    name: kubia
+    ports:
+    - containerPort: 8888
+      protocol: TCP
