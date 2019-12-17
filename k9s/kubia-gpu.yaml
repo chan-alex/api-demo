@@ -1,0 +1,13 @@
+apiVersion: v1               
+kind: Pod                    
+metadata:
+  name: kubia-gpu 
+spec:
+  nodeSelector:
+    gpu: "true"
+  containers:
+  - image: chanalex/api-demo:kubia-1.0   
+    name: kubia
+    ports:
+    - containerPort: 8888
+      protocol: TCP
