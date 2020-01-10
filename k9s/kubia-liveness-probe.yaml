@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: kubia-liveness
+spec:
+    containers:
+    - image: chanalex/api-demo:kubia-1.1-liveness
+      name: kubia
+      env:
+      - name: LIVEPROBE_FAIL_N  # triggers the liveness to simulate fail
+        value: "6"
+      livenessProbe:
+        httpGet:
+            path: /liveness
+            port: 8888 
